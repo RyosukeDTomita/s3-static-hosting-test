@@ -5,6 +5,7 @@
 ## S3の作成
 - Public Accessをすべて許可にする。
 - ACLはオフ
+- index.htmlをアップロード
 
 ## CloudFrontの設定
 - ディストリビューションの作成をする。
@@ -14,7 +15,7 @@
 > [Origin Shield](https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html)はオリジンの前にキャッシュレイヤーをおくことでCloud FrontのすべてのキャッシュレイヤーからオリジンへのリクエストがOrigin Shieldを通過するのでキャッシュヒット率が向上し，オリジンへの負荷を下げられる。
 - AWS WAFは課金されるのでオンにしない。リクエスト数に対して課金される。
 
-- ディストリビューションが作成されたら，Origins --> Origin domainにあるドメイン/index.htmlでアクセスできる。
+- ディストリビューションが作成されたら，General --> Details --> Distribution domain nameのドメインにアクセスする。**http**に変更するのを忘れずに。
 
 ### CloudFrontのみからのアクセスをS3バケットに対して許可する。
 - Origin Access Controllをディストリビューションで作り，ポリシーをS3に貼り付ける。
